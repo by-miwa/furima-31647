@@ -45,7 +45,6 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| times     | integer    | null: false                    |
 | products  | references | null: false                    |
 | user      | references | null: false, foreign_key: true |
 
