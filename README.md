@@ -21,19 +21,19 @@
 
 ## items テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| title        | string     | null: false                    |
-| text         | text       | null: false                    |
-| category     | string     | null: false                    |
-| status       | string     | null: false                    |
-| delivery_fee | string     | null: false                    |
-| area         | string     | null: false                    |
-| days         | string     | null: false                    |
-| price        | string     | null: false                    |
-| sales_fee    | string     | null: false                    |
-| sales_profit | string     | null: false                    |
-| user         | references | null: false, foreign_key: true |
+| Column          | Type        | Options                        |
+| --------------- | ----------- | ------------------------------ |
+| title           | string      | null: false                    |
+| text            | text        | null: false                    |
+| category_id     | integer     | null: false                    |
+| status_id       | integer     | null: false                    |
+| delivery_fee_id | integer     | null: false                    |
+| area_id         | integer     | null: false                    |
+| days_id         | integer     | null: false                    |
+| price           | string      | null: false                    |
+| sales_fee       | string      | null: false                    |
+| sales_profit    | string      | null: false                    |
+| user            | references  | null: false, foreign_key: true |
 
 
 ### Association
