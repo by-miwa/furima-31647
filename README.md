@@ -52,7 +52,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_many :streets
+- has_one :street
 
 
 ## streets テーブル
