@@ -57,15 +57,15 @@
 
 ## streets テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| postal       | string     | null: false                    |
-| prefecture   | string     | null: false                    |
-| city         | string     | null: false                    |
-| address      | string     | null: false                    |
-| apartment    | string     |                                |
-| phone_number | string     | null: false                    |
-| record       | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| ------------    | ---------- | ------------------------------ |
+| postal          | string     | null: false                    |
+| prefecture_id   | integer    | null: false                   |
+| city            | string     | null: false                    |
+| address         | string     | null: false                    |
+| apartment       | string     |                                |
+| phone_number    | string     | null: false                    |
+| record          | references | null: false, foreign_key: true |
 
 ### Association
 
