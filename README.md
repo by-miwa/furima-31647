@@ -2,6 +2,7 @@
 
 ## users テーブル
 
+<<<<<<< HEAD
 | Column                    | Type   | Options     |
 | ------------------------- | ------ | ----------- |
 | nickname                  | string | null: false |
@@ -12,6 +13,18 @@
 | last_name_kana            | string | null: false |
 | first_name_kana           | string | null: false |
 | birthday                  | date | null: false |
+=======
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birthday        | string | null: false |
+>>>>>>> parent of 7bcf550... encrypted_passwordに変更
 
 
 ### Association
@@ -31,8 +44,6 @@
 | area_id         | integer     | null: false                    |
 | days_id         | integer     | null: false                    |
 | price           | integer     | null: false                    |
-| sales_fee       | string      | null: false                    |
-| sales_profit    | string      | null: false                    |
 | user            | references  | null: false, foreign_key: true |
 
 
@@ -45,7 +56,7 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| product   | references | null: false                    |
+| item      | references | null: false  foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
