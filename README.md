@@ -13,18 +13,6 @@
 | last_name_kana            | string | null: false |
 | first_name_kana           | string | null: false |
 | birthday                  | date | null: false |
-=======
-| Column          | Type   | Options     |
-| --------------- | ------ | ----------- |
-| nickname        | string | null: false |
-| email           | string | null: false |
-| password        | string | null: false |
-| last_name       | string | null: false |
-| first_name      | string | null: false |
-| last_name_kana  | string | null: false |
-| first_name_kana | string | null: false |
-| birthday        | string | null: false |
->>>>>>> parent of 7bcf550... encrypted_passwordに変更
 
 
 ### Association
