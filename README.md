@@ -30,7 +30,7 @@
 | delivery_fee_id | integer     | null: false                    |
 | area_id         | integer     | null: false                    |
 | days_id         | integer     | null: false                    |
-| price           | string      | null: false                    |
+| price           | integer     | null: false                    |
 | sales_fee       | string      | null: false                    |
 | sales_profit    | string      | null: false                    |
 | user            | references  | null: false, foreign_key: true |
