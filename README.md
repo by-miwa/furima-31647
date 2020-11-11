@@ -45,7 +45,7 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| product  | references | null: false                    |
+| product   | references | null: false                    |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
