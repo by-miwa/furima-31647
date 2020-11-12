@@ -4,24 +4,34 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         validates :email, uniqueness: true   
-         validates :password, confirmation: true     
-         validates :nickname, presence: true         
-         validates :last_name, presence: true         
-         validates :first_name, presence: true         
-         validates :last_name_kana, presence: true         
-         validates :first_name_kana, presence: true         
-         validates :birthday, presence: true         
-    
+      PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+      validates_format_of :password, with: PASSWORD_REGEX
 
+      with_options presence: true do
+         validates :nickname, presence: true
+         validates :birthday, presence: true
+      end   
+
+      with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/} do         
+         validates :last_name, presence: true         
+         validates :first_name, presence: true
+      end
+
+      with_options format: {with: /\A[ァ-ヶー－]+\z/} do
+         validates :last_name_kana, presence: true         
+         validates :first_name_kana, presence: true
+      end         
+     
+      has_many :items
+      has_many :records
 end
 
 #新規登録/ユーザー情報
-#!メールアドレスが一意性であること
+#メールアドレスが一意性であること
 #メールアドレスは、@を含む必要があること
 #パスワードは、6文字以上での入力が必須であること
 #パスワードは、半角英数字混合での入力が必須であること
-#!パスワードとパスワード（確認用）、値の一致が必須であること
+#パスワードとパスワード（確認用）、値の一致が必須であること
 
 #新規登録/本人情報確認
 #ユーザー本名は、名字と名前がそれぞれ必須であること
