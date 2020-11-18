@@ -5,16 +5,16 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :area
   belongs_to :day
-  
+
   with_options presence: true do
-  validates :image
-  validates :title
-  validates :text
-  validates :price
-  validates :category_id
+    validates :image
+    validates :title
+    validates :text
+    validates :price
+    validates :category_id
   end
 
-  validates :category_id, :status_id, :delivery_fee_id, :area_id, :days_id, numericality: { other_than: 1 } 
+  validates :category_id, :status_id, :delivery_fee_id, :area_id, :days_id, numericality: { other_than: 1 }
   validates :area_id, numericality: { other_than: 0 }
 
   validates :price, presence: true, format: { with: /\A[0-9]+\z/ }
@@ -23,5 +23,4 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :record
   has_one_attached :image
-
 end
