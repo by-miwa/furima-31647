@@ -5,8 +5,9 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :area
   belongs_to :day
-
-  validates :title, :text, presence: true
+  
+  validates :image, presence: true
+  validates :title, presence: true
   validates :category_id, :status_id, :delivery_fee_id, :area_id, :days_id, numericality: { other_than: 1 } 
 
   belongs_to :user
