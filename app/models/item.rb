@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :status
   belongs_to :delivery_fee
   belongs_to :area
-  belongs_to :day
+  belongs_to :days
 
   with_options presence: true do
     validates :image
