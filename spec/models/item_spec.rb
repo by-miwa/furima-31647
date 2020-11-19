@@ -63,6 +63,38 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include('Days is not a number')
         end
 
+        # id = 1では保存できない制限のテスト ▼
+
+        it 'カテゴリーの情報がidが1だと投稿できない' do
+          @item.category_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Category must be other than 1")
+        end
+
+        it '商品の状態についての情報がidが1だと投稿できない' do
+          @item.status_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Status must be other than 1")
+        end
+
+        it '配送料の負担についての情報がidが1だと投稿できない' do
+          @item.delivery_fee_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
+        end
+
+        it '発送元の地域についての情報がidが1だと投稿できない' do
+          @item.area_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Area must be other than 1")
+        end
+
+        it '発送までの日数についての情報がidが1だと投稿できない' do
+          @item.days_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Days must be other than 1")
+        end
+
         # 価格のテスト ▼
 
         it '価格についての情報がないと投稿できない' do
