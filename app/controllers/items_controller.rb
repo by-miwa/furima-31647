@@ -14,8 +14,12 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render :new
+      render :show
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private
