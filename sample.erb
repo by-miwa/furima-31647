@@ -1,13 +1,10 @@
-Email can't be blank
-Password can't be blank
-Password is invalid
-Nickname can't be blank
-Birthday can't be blank
-Last name can't be blank
-Last name is invalid
-First name can't be blank
-First name is invalid
-Last name kana is invalid
-Last name kana can't be blank
-First name kana is invalid
-First name kana can't be blank
+require 'rails_helper'
+describe item do
+  describe '#create' do
+    it "is valid with a name, price, description, status, size, days, cost, prefecture_id, category_id, user_id" do
+      user = create(:user)
+      item = FactoryBot.build(:item, user_id: user[:id])
+      expect(item).to be_valid
+    end
+  end
+end
