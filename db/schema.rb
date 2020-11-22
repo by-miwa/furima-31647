@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 2020_11_21_082443) do
   create_table "streets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal", null: false
     t.text "prefecture_id", null: false
-    t.integer "city", null: false
-    t.integer "address", null: false
-    t.integer "apartment", null: false
-    t.integer "phone_number", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "apartment", null: false
+    t.string "phone_number", null: false
     t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
