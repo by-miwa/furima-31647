@@ -1,13 +1,10 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  
+
   def index
     @record_street = RecordStreet.new
     @item = Item.find(params[:item_id])
-    if current_user.id == @item.user_id || @item.record != nil
-      redirect_to root_path
-    end
-    
+    redirect_to root_path if current_user.id == @item.user_id || !@item.record.nil?
   end
 
   def create
@@ -21,17 +18,17 @@ class RecordsController < ApplicationController
       render action: :index
     end
   end
-  
+
   def record_street_params
     params.require(:record_street).permit(:postal, :prefecture_id, :city, :address, :apartment, :phone_number).merge(item_id: params[:item_id], user_id: current_user.id, token: params[:token])
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: @item.price,  
-      card: record_street_params[:token],   
-      currency: 'jpy'                
+      amount: @item.price,
+      card: record_street_params[:token],
+      currency: 'jpy'
     )
   end
 end
