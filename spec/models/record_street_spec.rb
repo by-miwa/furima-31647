@@ -39,6 +39,12 @@ RSpec.describe RecordStreet, type: :model do
           expect(@record_street.errors.full_messages).to include("Prefecture can't be blank")
         end
 
+        it 'prefecture_idが1では購入できない' do
+          @record_street.prefecture_id = 1
+          @record_street.valid?
+          expect(@record_street.errors.full_messages).to include("Prefecture must be other than 1")
+        end
+
         it 'cityが空では購入できない' do
           @record_street.city = nil
           @record_street.valid?
