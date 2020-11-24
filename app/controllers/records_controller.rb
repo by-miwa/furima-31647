@@ -1,12 +1,13 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+  
   def index
     @record_street = RecordStreet.new
     @item = Item.find(params[:item_id])
-    if current_user.id = @item.user_id || @item.record != nil
-      redirect_to root_path
-    else
+    if current_user.id == @item.user_id || @item.record != nil
       redirect_to root_path
     end
+    
   end
 
   def create
