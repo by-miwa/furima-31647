@@ -58,9 +58,9 @@ RSpec.describe Item, type: :model do
         end
 
         it '発送までの日数についての情報がないと投稿できない' do
-          @item.days_id = nil
+          @item.day_id = nil
           @item.valid?
-          expect(@item.errors.full_messages).to include('Days is not a number')
+          expect(@item.errors.full_messages).to include('Day is not a number')
         end
 
         # id = 1では保存できない制限のテスト ▼
@@ -90,9 +90,9 @@ RSpec.describe Item, type: :model do
         end
 
         it '発送までの日数についての情報がidが1だと投稿できない' do
-          @item.days_id = 1
+          @item.day_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include('Days must be other than 1')
+          expect(@item.errors.full_messages).to include('Day must be other than 1')
         end
 
         # 価格のテスト ▼

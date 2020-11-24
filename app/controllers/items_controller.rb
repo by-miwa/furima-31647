@@ -24,9 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user.id != @item.user_id  
-    redirect_to root_path 
-    end
+    redirect_to root_path if current_user.id != @item.user_id
   end
 
   def update
@@ -38,19 +36,18 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @item.user_id  
-    @item.destroy
-    redirect_to root_path
-    else  
-    render :show
+    if current_user.id == @item.user_id
+      @item.destroy
+      redirect_to root_path
+    else
+      render :show
     end
-  end  
-
+  end
 
   private
 
   def item_params
-    params.require(:item).permit(:image, :title, :text, :category_id, :status_id, :delivery_fee_id, :area_id, :days_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :title, :text, :category_id, :status_id, :delivery_fee_id, :area_id, :day_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
