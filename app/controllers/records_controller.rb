@@ -1,14 +1,13 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
+  before_action :set_item, only: [:index, :create]
 
   def index
     @record_street = RecordStreet.new
-    @item = Item.find(params[:item_id])
     redirect_to root_path if current_user.id == @item.user_id || !@item.record.nil?
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @record_street = RecordStreet.new(record_street_params)
     if @record_street.valid?
       pay_item
@@ -30,5 +29,9 @@ class RecordsController < ApplicationController
       card: record_street_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
